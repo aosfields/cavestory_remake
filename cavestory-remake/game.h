@@ -3,15 +3,26 @@
 //#ifndef GAME_H_
 //#define GAME_H_
 
-struct SDL_Window;
+#include "SDL.H"
+#include "iostream"
+#include "graphics.h"
+#include "sprite.h"
 
+//Look at installing_boost file to figure out how
+//to add boost
+#include <boost/scoped_ptr.hpp>
+
+//According to the tutorial, this wil allow us to use smart pointers
+//which are smart enough to know when to delete themselves.
 class Game {
 private:
 	void eventLoop();
 	void update();
-	void draw();
+	void draw(Graphics &graphics);
+	//scoped_ptr is the simplest. When it goes out of scope, it is destroyed. The following code is illegal (scoped_ptrs are non-copyable) but will illustrate a point:
+	//Because this pointer is in the Game Class Scope, whenever we deconstruct the Game object, the pointer should also be deallocated. Yay~!
+	boost::scoped_ptr<Sprite> sprite_;
 
-	SDL_Window* window_;
 public:
 	Game();
 	~Game();

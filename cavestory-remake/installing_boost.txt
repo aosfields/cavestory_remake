@@ -1,0 +1,19 @@
+1) Open up a MSVC command prompt 
+(you can do this on Win 10 by going to the start menu and 
+seraching for dev. Click on the Dev command prompt app.
+This worked for me so I didn't look at other options.)
+
+Then follow this post on SO to install boost.
+http://stackoverflow.com/a/2641513
+
+Unzip Boost into a new directory.
+Start a 32-bit MSVC command prompt and change to the directory where Boost was unzipped.
+Run: bootstrap
+Run: b2 toolset=msvc-17.0 --build-type=complete --libdir=C:\Boost\lib\i386 install
+	For Visual Studio 2012, use toolset=msvc-11.0
+	For Visual Studio 2010, use toolset=msvc-10.0
+Add C:\Boost\include\boost-(version) to your include path. (VC C++ Directories Include Section)
+Add C:\Boost\lib\i386 to your libs path. (VC C++ Directories Library Section)
+
+Since this tutorial was using the 32 bit SDL libraries as well
+I decided to use Boost 32 bit for now.
