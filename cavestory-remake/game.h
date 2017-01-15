@@ -17,7 +17,7 @@
 class Game {
 private:
 	void eventLoop();
-	void update();
+	void update(int elapsed_time_ms);
 	void draw(Graphics &graphics);
 	//scoped_ptr is the simplest. When it goes out of scope, it is destroyed. The following code is illegal (scoped_ptrs are non-copyable) but will illustrate a point:
 	//Because this pointer is in the Game Class Scope, whenever we deconstruct the Game object, the pointer should also be deallocated. Yay~!
@@ -26,6 +26,7 @@ private:
 public:
 	Game();
 	~Game();
+	static int kTileSize;
 };
 
 //#endif //GAME_H_
