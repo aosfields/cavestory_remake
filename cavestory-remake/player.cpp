@@ -14,13 +14,13 @@ namespace {
 	const float kMaxSpeedX = 0.325f; // pixels / ms
 }
 
-Player::Player(int x, int y) :
+Player::Player(Graphics& graphics, int x, int y) :
 		x_(x), y_(y), velocity_x_(0.0f),
 		acceleration_x_(0.0f)
 {
 	//takes the first sprite (pos: 0,0 which is 32 x 32) from the bitmap in our resources folder
 	//each frame lasts 15 fps and there are a total of 3 frames (EP3)
-	sprite_.reset( new AnimatedSprite(
+	sprite_.reset( new AnimatedSprite(graphics,
 		"resources/csspritesheet.bmp", 0, 0,
 		Game::kTileSize, Game::kTileSize, 15, 3));
 }
@@ -48,7 +48,6 @@ void Player::update(int elapsed_time_ms)
 
 void Player::draw(Graphics& graphics)
 {
-	//printf("In draw %d\n", x_);
 	sprite_->draw(graphics, x_, y_, Game::kTileSize, Game::kTileSize);
 }
 

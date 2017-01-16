@@ -5,11 +5,11 @@
 //The colon after the constructor signifies an initializer list
 //We are initializing the base class, and the consts we didn't initialize in the header file
 //Here is some reasons as to why we can do this https://stackoverflow.com/questions/355258/why-must-const-members-be-initialized-in-the-constructor-initializer-rather-than
-AnimatedSprite::AnimatedSprite(const std::string& file_path,
+AnimatedSprite::AnimatedSprite(Graphics& graphics, const std::string& file_path,
 	int source_x, int source_y,
 	int width, int height,
 	int fps, int num_frames) :
-	Sprite(file_path, source_x, source_y, width, height),
+	Sprite(graphics, file_path, source_x, source_y, width, height),
 	frame_time_(1000 / fps),
 	num_frames_(num_frames),
 	current_frame_(0),

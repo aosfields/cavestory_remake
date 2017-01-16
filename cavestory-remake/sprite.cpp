@@ -1,13 +1,13 @@
 #include "sprite.h"
 
 
-Sprite::Sprite(const std::string& file_path,
+Sprite::Sprite(Graphics& graphics, const std::string& file_path,
 	int source_x, int source_y,
 	int width, int height) {
 
 	//This function takes a char* and not a string. 
 	//Have to convert it via c_str() function
-	sprite_sheet_ = SDL_LoadBMP(file_path.c_str());
+	sprite_sheet_ = graphics.loadImage(file_path);
 	
 	//Where to look in the sheet for the sprite.
 	source_rect_.x = source_x;

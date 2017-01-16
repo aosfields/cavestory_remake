@@ -30,7 +30,7 @@ void Game::eventLoop()
 	Input input;
 
 	//place the player in the middle of the screen
-	player_.reset(new Player(320, 240));
+	player_.reset(new Player(graphics, 320, 240));
 	
 	bool running = true;
 	int last_update_time = SDL_GetTicks();

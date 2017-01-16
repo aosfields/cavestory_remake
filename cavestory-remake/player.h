@@ -8,7 +8,7 @@
 class Player
 {
 public:
-	Player(int x, int y);
+	Player(Graphics& graphics, int x, int y);
 	~Player();
 
 	void update(int elapsed_time_ms);
