@@ -7,7 +7,7 @@
 #include "iostream"
 #include "graphics.h"
 #include "sprite.h"
-
+#include "input.h"
 //Look at installing_boost file to figure out how
 //to add boost
 #include <boost/scoped_ptr.hpp>
