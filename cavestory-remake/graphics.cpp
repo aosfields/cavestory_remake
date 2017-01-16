@@ -28,6 +28,9 @@ void Graphics::createTextureAndRender(SDL_Surface* screensrc,
 	//https://wiki.libsdl.org/SDL_CreateTextureFromSurface
 	texture_ = SDL_CreateTextureFromSurface(renderer_, screensrc);
 	//Clear the renderer_ just in case
+	
+	//In episode 6 he had an issue where the graphics were getting
+	//clipped when moving the sprite
 	SDL_RenderClear(renderer_);
 	//Copy the texture to the renderer and then present it.
 	//SDL_RenderCopy(renderer_, texture_, src_rectangle, dest_rectangle);
